@@ -1,0 +1,317 @@
+@startuml
+digraph g {
+graph [
+rankdir = "LR"
+];
+
+node [
+fontsize = "16"
+shape = "ellipse"
+];
+
+edge [
+];
+
+
+subgraph cluster3 {fillcolor="cyan" label="Speed dependent ScalingFactor for Treselection_rat - 36.304" fontcolor="black" style="filled" gradientangle="270"
+		node [shape=box fillcolor="red:yellow" style="filled" gradientangle=90]
+"node1000" [
+label = "<f0> sf-Medium(0.25,0.5,0.75,1.0)|sf-High(0.25,0.5,0.75,1.0)"
+shape = "record"
+];
+}
+
+subgraph cluster4 {fillcolor="green" label="cellResel criteria: for diff priority(inter-Freq/Inter-RAT)" fontcolor="black" style="filled" gradientangle="270"
+		node [shape=box fillcolor="red:yellow" style="filled" gradientangle=90]
+"node1001" [
+label = "<f0>ThreshX-high|<f1>ThreshX-low"
+shape = "record"
+];
+}
+subgraph cluster6 {fillcolor="pink" label="CellResel Measurement rules: for Intra-freq" fontcolor="black" style="filled" gradientangle="270"
+		node [shape=box fillcolor="red:yellow" style="filled" gradientangle=90]
+"node1002" [
+label = "<f0>S-IntraSearch"
+shape = "record"
+];
+}
+subgraph cluster7 {fillcolor="pink" label="CellResel Measurement rules: for Inter-freq/InterRAT" fontcolor="black" style="filled" gradientangle="270"
+		node [shape=box fillcolor="red:yellow" style="filled" gradientangle=90]
+"node1003" [
+label = "<f0>S-NonIntraSearch"
+shape = "record"
+];
+}
+
+subgraph cluster5 {fillcolor="green" label="cellResel criteria: for euqual priority(intra/interfre/interRat)" fontcolor="black" style="filled" gradientangle="270"
+		node [shape=box fillcolor="red:yellow" style="filled" gradientangle=90]
+"node1004" [
+label = "<f0>Q-Hyst|<f1>Q-offset"
+shape = "record"
+];
+}
+
+"node9" [
+label = "<f0> SIB2|<f1>SIB3|<f2>SIB4|<f3>SIB5|<f4>SIB6|<f5>SIB7|<f6>SIB8"
+shape = "record"
+];
+
+"node13" [
+label = "<f0> cellResectionInfoCommon|<f1>cellReselectionServingFreqInfo|<f2> intraFreqCellReselectionInfo|<f3>lateNCExtersion"
+shape = "record"
+];
+
+subgraph cluster8 {fillcolor="pink:green" label="CellResel Options introduced in R9: S-qual" fontcolor="black" style="filled" gradientangle="270"
+		node [shape=box fillcolor="red:yellow" style="filled" gradientangle=90]
+
+"node130" [
+label = "<f0> s-IntraSearch-v920|<f1>s-NonIntraSearch-v920|<f2> q-QualMin-r9|<f3>threshServingLowQ-r9"
+shape = "record"
+];
+}
+
+"node14" [
+label = "<f0> q-Hyst|<f1> speedStateReselectionPars"
+shape = "record"
+];
+"node1400" [
+label = "<f0> mobilityStateParameters|<f1> q-HystSF"
+shape = "record"
+];
+
+subgraph cluster1 {fillcolor="cyan" label="Mobility states of a UE - (36.304 - 5.2.4.3)" fontcolor="black" style="filled" gradientangle="270"
+		node [shape=box fillcolor="red:yellow" style="filled" gradientangle=90]
+"node1401" [
+label = "<f0> t-Evaluation (TCRmax)|<f1> t-HystNormal (TCRmaxHyst)|n-CellChangeMedium (NCR_M)|n-CellChangeHigh (NCR_H)"
+shape = "record"
+];
+}
+
+subgraph cluster2 {fillcolor="cyan" label="Speed dependent ScalingFactor for Qhyst(36.304-5.2.4.6)" fontcolor="black" style="filled" gradientangle="270"
+		node [shape=box fillcolor="red:yellow" style="filled" gradientangle=90]
+"node1402" [
+label = "<f0> sf-Medium(dB-6,4,2,0)|<f1> sf-High(dB-6,4,2,0)"
+shape = "record"
+];
+}
+
+
+"node15" [
+label = "<f0> s-NonIntraSearch|<f1>threshServingLow|<f2> cellReselectionPriority"
+shape = "record"
+];
+"node1500" [
+label = "<f0> bridge (good_looking)"
+shape = "record"
+];
+"node16" [
+label = "<f0> q-RxLevMin|p-Max|<f2>s-IntraSearch|allowedMeasBandwidth|..|neighCellConfig|t-ReselectionEUTRA|<f10>t-ReselectionEUTRA-SF"
+shape = "record"
+];
+
+
+"node17" [
+label = "<f0> intraFreqNeighCellList|<f1> intraFreqBlackCellList|<f2> csg-PhysCellIdRange|laterNCExtension"
+shape = "record"
+];
+
+"node18" [
+label = "<f0> (list - maxCellIntra)|physCellId|<f1>q-offsetCell "
+shape = "record"
+];
+
+"node19" [
+label = "<f0> (list - maxCellBlack)|<f1>physCellIdRange "
+shape = "record"
+];
+
+"node20" [
+label = "<f0> start-PhysCellId|range "
+shape = "record"
+];
+
+"node21" [
+label = "<f0> interFreqCarrierFreqList|<f1> laterNCExtension"
+shape = "record"
+];
+"node22" [
+label = "<f0> (list - maxFreq)|<f1> interFreqCarrierFreqInfo|..."
+shape = "record"
+];
+"node200" [
+label = "<f0> bridge (good_looking)"
+shape = "record"
+];
+
+"node23" [
+label = "<f0> dl-ARFCN|q-RxlevMin|p-Max|t-ReselectionEUTRA|<f5>t-ReselectionEUTRA-SF|<f6>threshX-High|<f7>threashx-Low|allowedMeasBandwidth|cellReselectionPriority|neighcellConfig|q-OffsetFreq|interFreqNeighcellList|interFreqBlackcellList|..."
+shape = "record"
+];
+
+"node24" [
+label = "<f0> carrierFreqListUTRA-FDD|<f1> carrierFreqListUTRA-TDD|t-reselectionUTRA|<f5>t-reselectionUTRA-SF|laterNCExtension"
+shape = "record"
+];
+"node25" [
+label = "<f0> (list-MaxUTRA-FDD-Carrer) |<f1> CarrierFreqUTRA-FDD|..."
+shape = "record"
+];
+"node26" [
+label = "<f0> carrierFreq|<f1> CellReselectionPriority|<f2>threshX-High|<f3>threshX-Low|q-RxLevMin|p-MaxUTRA|q-QualMin"
+shape = "record"
+];
+
+"node27" [
+label = "<f0> t-ReselectionGERAN|<f1>t-ReselectionGERAN-SF|<f2>carrierFreqsInfoList|laterNCExension"
+shape = "record"
+];
+"node28" [
+label = "<f0> (list-maxGNFG)|<f1> CarrierFreqsInfoGERAN|..."
+shape = "record"
+];
+"node29" [
+label = "<f0> carrierFreqs|<f1>commonInfo"
+shape = "record"
+];
+"node30" [
+label = "<f0> cellReselectionPriority|<f1>ncc-Permitted|<f2>q-RxLevMin|p-MaxGERAN|<f4>threshX-High|<f5>threshX-Low"
+shape = "record"
+];
+
+
+"node9":f1 -> "node13":f0 [
+id = 0
+];
+
+"node13":f0 -> "node14":f0 [
+id = 0
+];
+"node14":f1 -> "node1400":f0 [
+id = 0
+];
+"node1400":f0 -> "node1401":f0 [
+id = 0
+];
+"node1400":f1 -> "node1402":f0 [
+id = 0
+];
+
+"node13":f1 -> "node15":f0 [
+id = 0
+];
+"node13":f2 -> "node1500":f0 [
+id = 0
+];
+"node1500":f0 -> "node16":f0 [
+id = 0
+];
+"node16":f10 -> "node1000":f0 [
+id = 0
+];
+
+"node13":f3 -> "node130":f0 [
+id = 0
+];
+
+"node9":f2 -> "node17":f0 [
+id = 0
+];
+"node17":f0 -> "node18":f0 [
+id = 0
+];
+"node17":f1 -> "node19":f0 [
+id = 0
+];
+"node19":f1 -> "node20":f0 [
+id = 0
+];
+
+"node9":f3 -> "node21":f0 [
+id = 0
+];
+"node21":f0 -> "node22":f0 [
+id = 0
+];
+"node22":f1 -> "node200":f0 [
+id = 0
+];
+"node200":f0 -> "node23":f0 [
+id = 0
+];
+"node23":f5 -> "node1000":f0 [
+id = 0
+];
+
+
+"node9":f4 -> "node24":f0 [
+id = 0
+];
+"node24":f5 -> "node1000":f0 [
+id = 0
+];
+
+"node24":f0 -> "node25":f0 [
+id = 0
+];
+"node25":f1 -> "node26":f0 [
+id = 0
+];
+
+"node9":f5 -> "node27":f0 [
+id = 0
+];
+"node27":f1 -> "node1000":f0 [
+id = 0
+];
+
+"node27":f2 -> "node28":f0 [
+id = 0
+];
+"node28":f1 -> "node29":f0 [
+id = 0
+];
+"node29":f1 -> "node30":f0 [
+id = 0
+];
+
+"node23":f6 -> "node1001":f0 [
+id = 0
+];
+"node26":f2 -> "node1001":f0 [
+id = 0
+];		
+"node30":f4 -> "node1001":f0 [
+id = 0
+];		
+"node23":f7 -> "node1001":f1 [
+id = 0
+];
+"node26":f3 -> "node1001":f1 [
+id = 0
+];		
+"node30":f5 -> "node1001":f1 [
+id = 0
+];	
+
+
+"node16":f2 -> "node1002":f0 [
+id = 0
+];	
+
+"node15":f0 -> "node1003":f0 [
+id = 0
+];	
+
+"node14":f0 -> "node1004":f0 [
+id = 0
+];	
+"node18":f1 -> "node1004":f1 [
+id = 0
+];	
+
+
+	}
+
+
+}
+@enduml

@@ -1,0 +1,210 @@
+@startuml
+digraph g {
+graph [
+rankdir = "LR"
+];
+node [
+fontsize = "16"
+shape = "ellipse"
+];
+edge [
+];
+
+"node100" [
+label = "<f0> PBCH|<f1> PDSCH"
+shape = "record"
+];
+
+"node101" [
+label = "<f0> BCH"
+shape = "record"
+];
+
+"node102" [
+label = "<f0> DL-SCH"
+shape = "record"
+];
+
+"node103" [
+label = "<f0> BCCH-sibx"
+shape = "record"
+];
+
+"node100":f0 -> "node101":f0 [
+id = 0
+];
+
+"node100":f1 -> "node102":f0 [
+id = 0
+];
+
+"node101":f0 -> "node0":f0 [
+id = 0
+];
+
+"node102":f0 -> "node103":f0 [
+id = 0
+];
+
+"node103":f0 -> "node9":f0 [
+id = 0
+];
+
+"node0" [
+label = "<f0> BCCH_mib/sib1"
+shape = "record"
+];
+
+"node1" [
+label = "<f0> MIB|<f1>SIB1"
+shape = "record"
+];
+
+
+"node9" [
+label = "<f0> SIB2|<f1>SIB3|<f2>SIB4|<f3>SIB5|<f4>SIB6|<f5>SIB7|<f6>SIB8"
+shape = "record"
+];
+
+"node20" [
+label = "<f0> dl-BW|<f1> phich-Config| SFN (8 bits)"
+shape = "record"
+];
+"node21" [
+label = "<f0> phich-Duration|<f1> phich-Resource"
+shape = "record"
+];
+
+"node30" [
+label = "<f0> cellAccessRelatedInfo|<f1> cellSelectionInfo|p-Max|freqBandIndicator|<f3>schedulingInfoList|<f4>tdd-Config|si-WindowLength|systemInfoValueTag|<f7>NCExtension"
+shape = "record"
+];
+"node300" [
+label = "<f0> SystermInfoBlkType1-V920-IEs"
+shape = "record"
+];
+"node301" [
+label = "<f0> ims-EmergencySupport-R9|<f1>cellSelectionInfo-v920|NCExtension"
+shape = "record"
+];
+subgraph cluster1 {fillcolor="green" label="cell selection Criterion: Squal (introduced by R9)" fontcolor="black" style="filled" gradientangle="270"
+		node [shape=box fillcolor="red:yellow" style="filled" gradientangle=90]
+"node302" [
+label = "<f0> q-QualMin-r9|<f1>q-QualMinoffset-r9"
+shape = "record"
+];
+}
+
+"node31" [
+label = "<f0> plmn-IndentityList|<f1> trackingAreaCode|cellIndentity|cellBarred (barred, notBarred)|intraFreqReselection (allowed, notAllowed)|csg-Indication|csg-Indentity"
+shape = "record"
+];
+
+subgraph cluster2 {fillcolor="green" label="cell selection Criterion" fontcolor="black" style="filled" gradientangle="270"
+		node [shape=box fillcolor="red:yellow" style="filled" gradientangle=90]
+"node32" [
+label = "<f0> q-RxlevMin|<f1> q-RxlevMinOffset"
+shape = "record"
+];
+}
+"node33" [
+label = "<f0> (list - maxSI-msg)|<f1> SchedulingInfo"
+shape = "record"
+];
+"node34" [
+label = "<f0> si-Periodicity|<f1> sib-MappingInfo (SIB-Type)"
+shape = "record"
+];
+"node35" [
+label = "<f0> subframeAssignment|<f1> specialSubframePatterns"
+shape = "record"
+];
+
+"node40" [
+label = "<f0> ac-BarringInfo|<f1> radioResourceConfigCommon|<f2>ue-TimersAddConstants|<f3>freqInfo|mbsfn-subframeConfigList|laterNCExtension"
+shape = "record"
+];
+"node41" [
+label = "<f0> ac-BarringForEmergency|<f1> ac-BarringForMO-Signaling|ac-BarringForMO-Data"
+shape = "record"
+];
+"node4000" [
+label = "<f0> bridge(good_looking)"
+shape = "record"
+];
+"node42" [
+label = "<f0> rach-configCommon|<f1> bcch-cfg|pcch-cfg|prach-cfg|pdsch-cfgCommon|pusch-cfgCommon|pucch-cfgCommon|SRS-UL-CfgCommon|ulPowerCtrl|ul-CPLen"
+shape = "record"
+];
+"node43" [
+label = "<f0> t300/t301/t310/t311|<f1> n310/n311"
+shape = "record"
+];
+"node44" [
+label = "<f0> ul-ARFCN|<f1> ul-BW|..."
+shape = "record"
+];
+
+
+
+
+"node0":f0 -> "node1":f0 [
+id = 0
+];
+
+"node1":f0 -> "node20":f0 [
+id = 0
+];
+"node20":f1 -> "node21":f0 [
+id = 0
+];
+
+"node1":f1 -> "node30":f0 [
+id = 0
+];
+"node30":f0 -> "node31":f0 [
+id = 0
+];
+"node30":f1 -> "node32":f0 [
+id = 0
+];
+"node30":f3 -> "node33":f0 [
+id = 0
+];
+"node33":f1 -> "node34":f0 [
+id = 0
+];
+"node30":f4 -> "node35":f0 [
+id = 0
+];
+"node30":f7 -> "node300":f0 [
+id = 0
+];
+"node300":f0 -> "node301":f0 [
+id = 0
+];
+"node301":f1 -> "node302":f0 [
+id = 0
+];
+
+"node9":f0 -> "node40":f0 [
+id = 0
+];
+"node40":f0 -> "node41":f0 [
+id = 0
+];
+"node40":f1 -> "node4000":f0 [
+id = 0
+];
+"node4000":f0 -> "node42":f0 [
+id = 0
+];
+"node40":f2 -> "node43":f0 [
+id = 0
+];
+"node40":f3 -> "node44":f0 [
+id = 0
+];
+
+}
+@enduml
